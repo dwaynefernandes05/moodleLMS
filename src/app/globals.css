@@ -1,0 +1,194 @@
+@import "tailwindcss";
+
+/* Class-based dark mode (next-themes sets .dark on <html>) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ------------------------------------------------------------------ */
+/* Design tokens. Light values were sampled from the Figma exports.   */
+/* ------------------------------------------------------------------ */
+:root {
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --surface-2: #eff4ff; /* tinted inner panel */
+  --surface-3: #e5eeff; /* progress track, secondary buttons */
+  --surface-4: #dce9ff;
+  --border: #e6ecf5;
+  --border-strong: #cfd9ea;
+
+  --text: #0b1c30;
+  --text-2: #434655;
+  --text-muted: #64748b;
+
+  --primary: #0051d5; /* buttons, links */
+  --primary-hover: #0044b3;
+  --primary-fg: #ffffff;
+  --brand: #316bf3; /* active nav pill, active tabs */
+  --link: #0051d5;
+  --primary-soft: #e5eeff;
+
+  --danger: #dc2626;
+  --danger-solid: #ef4444;
+  --danger-soft: #fef2f2;
+  --warning: #d97706;
+  --warning-solid: #f59e0b;
+  --warning-soft: #fffbeb;
+  --success: #059669;
+  --success-solid: #10b981;
+  --success-soft: #ecfdf5;
+
+  --banner-from: #0051d5;
+  --banner-to: #0b1c30;
+
+  --shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 10px 30px -10px rgba(15, 23, 42, 0.08);
+  --shadow-pop: 0 12px 40px -8px rgba(15, 23, 42, 0.18);
+  color-scheme: light;
+}
+
+.dark {
+  --bg: #0b1220;
+  --surface: #111a2e;
+  --surface-2: #17233f;
+  --surface-3: #1e2c4d;
+  --surface-4: #263760;
+  --border: #1f2a44;
+  --border-strong: #2e3d62;
+
+  --text: #e8eef8;
+  --text-2: #b6c2d9;
+  --text-muted: #8c99b3;
+
+  --primary: #2563eb;
+  --primary-hover: #1d4fd8;
+  --primary-fg: #ffffff;
+  --brand: #2563eb;
+  --link: #6ea8ff;
+  --primary-soft: rgba(59, 130, 246, 0.16);
+
+  --danger: #ff7b86;
+  --danger-solid: #ef4444;
+  --danger-soft: rgba(239, 68, 68, 0.14);
+  --warning: #fbbf24;
+  --warning-solid: #f59e0b;
+  --warning-soft: rgba(245, 158, 11, 0.14);
+  --success: #34d399;
+  --success-solid: #10b981;
+  --success-soft: rgba(16, 185, 129, 0.14);
+
+  --banner-from: #0f4fd0;
+  --banner-to: #0a1530;
+
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  --shadow-pop: 0 12px 40px -8px rgba(0, 0, 0, 0.6);
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-page: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-surface-4: var(--surface-4);
+  --color-line: var(--border);
+  --color-line-strong: var(--border-strong);
+  --color-fg: var(--text);
+  --color-fg-2: var(--text-2);
+  --color-fg-muted: var(--text-muted);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-fg: var(--primary-fg);
+  --color-primary-soft: var(--primary-soft);
+  --color-brand: var(--brand);
+  --color-link: var(--link);
+  --color-danger: var(--danger);
+  --color-danger-solid: var(--danger-solid);
+  --color-danger-soft: var(--danger-soft);
+  --color-warning: var(--warning);
+  --color-warning-solid: var(--warning-solid);
+  --color-warning-soft: var(--warning-soft);
+  --color-success: var(--success);
+  --color-success-solid: var(--success-solid);
+  --color-success-soft: var(--success-soft);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --shadow-card: var(--shadow);
+  --shadow-pop: var(--shadow-pop);
+}
+
+html {
+  background: var(--bg);
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3 {
+  letter-spacing: -0.02em;
+}
+
+/* Quick colour transitions on theme change only (background/border/text). */
+@media (prefers-reduced-motion: no-preference) {
+  body,
+  body * {
+    transition-property: background-color, border-color, color, fill, stroke;
+    transition-duration: 160ms;
+    transition-timing-function: ease-out;
+  }
+  /* Don't animate things that should be instant or that animate themselves. */
+  .no-theme-transition,
+  .no-theme-transition * {
+    transition: none !important;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+.line-clamp-1-fix {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Hide scrollbar utility for horizontal chip rows */
+.scrollbar-none {
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.toast-in {
+  animation: toast-in 180ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
