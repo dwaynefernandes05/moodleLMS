@@ -128,7 +128,7 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-line/70 bg-page/85 backdrop-blur-md">
-      <div className="mx-auto flex h-[70px] w-full max-w-[1280px] items-center gap-3 px-3 xl:gap-3">
+      <div className="relative mx-auto flex h-[70px] w-full max-w-[1280px] items-center gap-3 px-3 xl:gap-3">
         <Logo />
 
         {/* Search */}
@@ -147,7 +147,7 @@ export function Navbar() {
         </label>
 
         {/* Desktop nav */}
-        <nav aria-label="Primary" className="hidden items-center gap-0.5 lg:flex xl:gap-1">
+        <nav aria-label="Primary" className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-3 lg:flex xl:gap-4">
           {navLinks.map((l) => {
             const active = l.match(pathname);
             const single = l.lines.length === 1;
