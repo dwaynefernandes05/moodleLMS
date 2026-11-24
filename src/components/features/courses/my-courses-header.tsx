@@ -55,9 +55,6 @@ export function MyCoursesHeader() {
             <span className="text-[14px] font-medium text-link">Department of Computer Engineering</span>
           </div>
           <h1 className="mt-1.5 text-[35px] font-bold leading-[44px] tracking-[-0.03em] text-fg">My Courses &amp; Enrolments</h1>
-          <p className="mt-1.5 text-[14px] leading-[22px] text-fg-2">
-            Track real-time syllabi progress, assignment milestones, and lab journals for B.Tech Semester VII. Autonomy credits synchronized with Mumbai University guidelines.
-          </p>
         </div>
 
         <div className="flex flex-wrap items-start gap-3 lg:-mt-5 lg:flex-nowrap">
