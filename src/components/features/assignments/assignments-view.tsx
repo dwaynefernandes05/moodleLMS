@@ -114,13 +114,13 @@ export function AssignmentsView() {
         </div>
 
         {active.length > 0 ? (
-          <div className="mt-5 grid grid-cols-1 items-start gap-0 md:grid-cols-2 md:gap-x-6">
-            <div className="flex min-w-0 flex-col gap-0">
+          <div className="mt-5 grid grid-cols-1 items-start gap-5 md:grid-cols-2 md:gap-x-6 md:gap-y-5">
+            <div className="flex min-w-0 flex-col gap-5">
               {left.map((d) => (
                 <DeliverableCard key={d.id} d={d} />
               ))}
             </div>
-            <div className="flex min-w-0 flex-col gap-0">
+            <div className="flex min-w-0 flex-col gap-5">
               {right.map((d) => (
                 <DeliverableCard key={d.id} d={d} />
               ))}

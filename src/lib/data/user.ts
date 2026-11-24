@@ -21,10 +21,4 @@ export const navLinks: NavLink[] = [
     href: "/assignments",
     match: (p) => p.startsWith("/assignments"),
   },
-  {
-    label: "Announcements & Updates",
-    lines: ["Announcements", "& Updates"],
-    href: "/announcements",
-    match: (p) => p.startsWith("/announcements"),
-  },
 ];

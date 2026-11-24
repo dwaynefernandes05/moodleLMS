@@ -147,7 +147,7 @@ export function Navbar() {
         </label>
 
         {/* Desktop nav */}
-        <nav aria-label="Primary" className="hidden items-center gap-0.5 lg:flex xl:gap-1">
+        <nav aria-label="Primary" className="hidden items-center gap-2 lg:flex xl:gap-3">
           {navLinks.map((l) => {
             const active = l.match(pathname);
             const single = l.lines.length === 1;
